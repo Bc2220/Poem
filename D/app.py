@@ -70,6 +70,8 @@ def D1():
     data = soup.findAll("p", attrs={"class": "list"})
 
     FACTS = [fact.find(string=re.compile("(S|s)un")) for fact in data]
+    # list size: 40
+
     text = (FACTS[1]) 
     
     return render_template("d1.html", text = text)
@@ -81,30 +83,16 @@ def D1():
 #define app function
 def D2():
 
-    #Set up list
-    #D1 = 'sun god'
-    D2 = 'moon god'
-    #D3 = 'D3'
+    headers = {'user-agent': 'Mozilla/5.0'}
+    page = requests.get("https://factpros.com/interesting-facts-about-the-moon-for-kids-and-adults/",headers=headers)
+    soup = BeautifulSoup(page.content,'html.parser')
 
+    data = soup.findAll("h5")
 
-    #get number
-    number = 30
-
-    #move through list
-    search = D2
-    article = []
-    results = 100 # valid options 10, 20, 30, 40, 50, and 100
-    page = requests.get(f"https://www.google.com/search?q={search}&num={results}")
-    soup = BeautifulSoup(page.content, "html.parser")
-    links = soup.findAll("a")
-    for link in links :
-        link_href = link.get('href')
-        if "url?q=" in link_href and not "webcache" in link_href:
-            article.append((link.get('href').split("?q=")[1].split("&sa=U")[0]))
-
-    page = requests.get(f'{article[number]}')
-    soup = BeautifulSoup(page.text, 'html.parser')
-    text = (soup.text)
+    FACTS = [fact.find(string=re.compile("(M|m)oon")) for fact in data]
+    # list size: 40
+   
+    text = (FACTS[39])
 
     
     return render_template("d2.html", text = text)
@@ -117,31 +105,17 @@ def D2():
 #define app function
 def D3():
 
-    #Set up list
-    #D1 = 'D1'
-    #D2 = 'D2'
-    D3 = 'star gods'
+    headers = {'user-agent': 'Mozilla/5.0'}
+    page = requests.get("https://www.factretriever.com/star-facts",headers=headers)
+    soup = BeautifulSoup(page.content,'html.parser')
 
+    data = soup.select("ul.factsList")
+    data2 = data[0].findAll("li")
 
-    #get number
-    number = 30
+    FACTS = [fact.find(string=re.compile(".")) for fact in data2]
+    # list size: 46
 
-    #move through list
-    search = D3
-    article = []
-    results = 100 # valid options 10, 20, 30, 40, 50, and 100
-    page = requests.get(f"https://www.google.com/search?q={search}&num={results}")
-    soup = BeautifulSoup(page.content, "html.parser")
-    links = soup.findAll("a")
-    for link in links :
-        link_href = link.get('href')
-        if "url?q=" in link_href and not "webcache" in link_href:
-            article.append((link.get('href').split("?q=")[1].split("&sa=U")[0]))
-
-    page = requests.get(f'{article[number]}')
-    soup = BeautifulSoup(page.text, 'html.parser')
-    text = (soup.text)
-
+    text = (FACTS[4])
     
     return render_template("d3.html", text = text)
 
@@ -152,31 +126,15 @@ def D3():
 #define app function
 def D4():
 
-    #Set up list
-    #D1 = 'D1'
-    #D2 = 'D2'
-    #D3 = 'stars'
-    D4 = 'cloud gods'
+    headers = {'user-agent': 'Mozilla/5.0'}
+    page = requests.get("https://techjury.net/blog/cloud-computing-statistics/",headers=headers)
+    soup = BeautifulSoup(page.content,'html.parser')
 
+    data = soup.findAll("h4")
 
-    #get number
-    number = 30
+    FACTS = [fact.find(string=re.compile(".")) for fact in data]
+    # list size: 33 (skip first index[0])
 
-    #move through list
-    search = D4
-    article = []
-    results = 100 # valid options 10, 20, 30, 40, 50, and 100
-    page = requests.get(f"https://www.google.com/search?q={search}&num={results}")
-    soup = BeautifulSoup(page.content, "html.parser")
-    links = soup.findAll("a")
-    for link in links :
-        link_href = link.get('href')
-        if "url?q=" in link_href and not "webcache" in link_href:
-            article.append((link.get('href').split("?q=")[1].split("&sa=U")[0]))
+    text = (FACTS[1])
 
-    page = requests.get(f'{article[number]}')
-    soup = BeautifulSoup(page.text, 'html.parser')
-    text = (soup.text)
-
-    
     return render_template("d3.html", text = text)
