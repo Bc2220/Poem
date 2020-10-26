@@ -133,7 +133,8 @@ def D3():
     # generate some integers
     x = len(FACT)
     num = randint(0, x-1)
-    text = (FACT[num])
+    num2 = randint(0, x-1)
+    text = (FACT[num2])
     return render_template("d3.html", text = text)
 
 
