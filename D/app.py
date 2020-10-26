@@ -65,8 +65,8 @@ def D1():
     FACTS = [fact.find(string=re.compile("(S|s)un")) for fact in data]
     FACT = [] 
     for val in FACTS: 
-    if val != None : 
-        FACT.append(val)
+        if val != None : 
+            FACT.append(val)
     # list size: 40
     # seed random number generator
     seed(1)
@@ -94,8 +94,8 @@ def D2():
     FACTS = [fact.find(string=re.compile("(M|m)oon")) for fact in data]
     FACT = [] 
     for val in FACTS: 
-    if val != None : 
-        FACT.append(val)
+        if val != None : 
+            FACT.append(val)
     # list size: 40
     # seed random number generator
     seed(1)
@@ -125,8 +125,8 @@ def D3():
     FACTS = [fact.find(string=re.compile(".")) for fact in data2]
     FACT = [] 
     for val in FACTS: 
-    if val != None : 
-        FACT.append(val)
+        if val != None : 
+            FACT.append(val)
     # list size: 46
     # seed random number generator
     seed(1)
@@ -152,8 +152,8 @@ def D4():
     FACTS = [fact.find(string=re.compile(".")) for fact in data]
     FACT = [] 
     for val in FACTS: 
-    if val != None : 
-        FACT.append(val)
+        if val != None : 
+            FACT.append(val)
     # list size: 33
     # seed random number generator
     seed(1)
