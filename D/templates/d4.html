@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cloud-Poem</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body{
+    background-image: url(https://pa1.narvii.com/6701/ffdf9fe9ed60b0a5039e601a022976b1db2ebd04_hq.gif);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+        p{ color: white; }
+    </style>
+</head>
+
+<body>
+
+    <h3><p>{{text}}</p></h3>
+    
+    <form action="index">
+        <button type="submit">-HOME-</button>
+    <form>
+
+</body>
+
+</html>
