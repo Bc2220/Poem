@@ -30,39 +30,12 @@ def index():
     
     ########################################
     #Set up list
-    #D1 = 'sun god'
-    #D2 = 'D2'
-    #D3 = 'D3'
-
-    headers = {'user-agent': 'Mozilla/5.0'}
-    page = requests.get("https://www.thefactsite.com/facts-about-the-sun/",headers=headers)
-    soup = BeautifulSoup(page.content,'html.parser')
-
-    data = soup.findAll("p", attrs={"class": "list"})
-
-    FACTS = [fact.find(string=re.compile("(S|s)un")) for fact in data]
-    text = (FACTS[1]) 
-
-    
-    return render_template("index.html", text = text, picture = picture)
-
-
-#set route for user navigation
-@app.route('/d1')
-
-#define app function
-def D1():
-
-
-   #Set up list
     D1 = 'sun god'
     #D2 = 'D2'
     #D3 = 'D3'
 
-
     #get number
-    number = 10
-
+    number = 30
 
     #move through list
     search = D1
@@ -78,8 +51,26 @@ def D1():
 
     page = requests.get(f'{article[number]}')
     soup = BeautifulSoup(page.text, 'html.parser')
-    text = (soup.text)
+    text = (soup.text) 
 
+    
+    return render_template("index.html", text = text, picture = picture)
+
+
+#set route for user navigation
+@app.route('/d1')
+
+#define app function
+def D1():
+
+    headers = {'user-agent': 'Mozilla/5.0'}
+    page = requests.get("https://www.thefactsite.com/facts-about-the-sun/",headers=headers)
+    soup = BeautifulSoup(page.content,'html.parser')
+
+    data = soup.findAll("p", attrs={"class": "list"})
+
+    FACTS = [fact.find(string=re.compile("(S|s)un")) for fact in data]
+    text = (FACTS[1]) 
     
     return render_template("d1.html", text = text)
 
