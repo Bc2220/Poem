@@ -66,10 +66,10 @@ def D1():
             FACT.append(val)
     # list size: 40
     # seed random number generator
-    seed(1)
+    #seed(1)
     # generate some integers
-    x = len(FACT)
-    num = randint(0, x-1)
+    #x = len(FACT)
+    #num = randint(0, x-1)
 
     text = (random.choice(FACT)) 
     
@@ -95,10 +95,10 @@ def D2():
             FACT.append(val)
     # list size: 40
     # seed random number generator
-    seed(1)
+    #seed(1)
     # generate some integers
-    x = len(FACT)
-    num = randint(0, x-1)
+    #x = len(FACT)
+    #num = randint(0, x-1)
     text = (random.choice(FACT))
 
     
@@ -126,11 +126,11 @@ def D3():
             FACT.append(val)
     # list size: 46
     # seed random number generator
-    seed(1)
+    #seed(1)
     # generate some integers
-    x = len(FACT)
-    num = randint(0, x-1)
-    num2 = randint(0, x-1)
+    #x = len(FACT)
+    #num = randint(0, x-1)
+    #num2 = randint(0, x-1)
     text = (random.choice(FACT))
     return render_template("d3.html", text = text)
 
@@ -154,9 +154,9 @@ def D4():
             FACT.append(val)
     # list size: 33
     # seed random number generator
-    seed(1)
+    #seed(1)
     # generate some integers
-    x = len(FACT)
-    num = randint(0, x-1)
+    #x = len(FACT)
+    #num = randint(0, x-1)
     text = (random.choice(FACT))
     return render_template("d4.html", text = text)
