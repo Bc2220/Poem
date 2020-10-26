@@ -74,7 +74,7 @@ def D1():
     x = len(FACT)
     num = randint(0, x-1)
 
-    text = (FACTS[num]) 
+    text = (FACT[num]) 
     
     return render_template("d1.html", text = text)
 
@@ -102,7 +102,7 @@ def D2():
     # generate some integers
     x = len(FACT)
     num = randint(0, x-1)
-    text = (FACTS[num])
+    text = (FACT[num])
 
     
     return render_template("d2.html", text = text)
@@ -133,7 +133,7 @@ def D3():
     # generate some integers
     x = len(FACT)
     num = randint(0, x-1)
-    text = (FACTS[num])
+    text = (FACT[num])
     return render_template("d3.html", text = text)
 
 
@@ -160,5 +160,5 @@ def D4():
     # generate some integers
     x = len(FACT)
     num = randint(0, x-1)
-    text = (FACTS[num])
+    text = (FACT[num])
     return render_template("d3.html", text = text)
