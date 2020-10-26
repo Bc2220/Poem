@@ -34,24 +34,14 @@ def index():
     #D2 = 'D2'
     #D3 = 'D3'
 
-    #get number
-    number = 30
+    headers = {'user-agent': 'Mozilla/5.0'}
+    page = requests.get("https://www.thefactsite.com/facts-about-the-sun/",headers=headers)
+    soup = BeautifulSoup(page.content,'html.parser')
 
-    #move through list
-    search = D1
-    article = []
-    results = 100 # valid options 10, 20, 30, 40, 50, and 100
-    page = requests.get(f"https://www.google.com/search?q={search}&num={results}")
-    soup = BeautifulSoup(page.content, "html.parser")
-    links = soup.findAll("a")
-    for link in links :
-        link_href = link.get('href')
-        if "url?q=" in link_href and not "webcache" in link_href:
-            article.append((link.get('href').split("?q=")[1].split("&sa=U")[0]))
+    data = soup.findAll("p", attrs={"class": "list"})
 
-    page = requests.get(f'{article[number]}')
-    soup = BeautifulSoup(page.text, 'html.parser')
-    text = (soup.text) 
+    FACTS = [fact.find(string=re.compile("(S|s)un")) for fact in data]
+    text = (FACTS[1]) 
 
     
     return render_template("index.html", text = text, picture = picture)
