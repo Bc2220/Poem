@@ -7,10 +7,7 @@ app = Flask(__name__)
 from bs4 import BeautifulSoup
 import requests
 import re
-
-# generate random integer point values
-from random import seed
-from random import randint
+import random
 
 #set route for user navigation
 @app.route('/')
@@ -74,7 +71,7 @@ def D1():
     x = len(FACT)
     num = randint(0, x-1)
 
-    text = (FACT[num]) 
+    text = (random.choice(FACT)) 
     
     return render_template("d1.html", text = text)
 
@@ -102,7 +99,7 @@ def D2():
     # generate some integers
     x = len(FACT)
     num = randint(0, x-1)
-    text = (FACT[num])
+    text = (random.choice(FACT))
 
     
     return render_template("d2.html", text = text)
@@ -134,7 +131,7 @@ def D3():
     x = len(FACT)
     num = randint(0, x-1)
     num2 = randint(0, x-1)
-    text = (FACT[num2])
+    text = (random.choice(FACT))
     return render_template("d3.html", text = text)
 
 
@@ -161,5 +158,5 @@ def D4():
     # generate some integers
     x = len(FACT)
     num = randint(0, x-1)
-    text = (FACT[num])
+    text = (random.choice(FACT))
     return render_template("d4.html", text = text)
