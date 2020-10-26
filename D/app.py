@@ -18,17 +18,7 @@ from random import randint
 #define app function
 def index():
     
-    headers = {'user-agent': 'Mozilla/5.0'}
-    page = requests.get("https://www.reddit.com/r/MemeEconomy/", headers=headers)
-    soup = BeautifulSoup(page.content, 'html.parser')
-    imgs = soup.findAll('img', attrs={'alt':'Post image'})
 
-    imglist = []
-    for img in imgs :
-        link_src = img.get('src')
-        imglist.append(link_src)
-
-    #picture = imglist[1]
     picture = ("https://truthignitedministry.files.wordpress.com/2019/01/SunGodWordpress.png?w=920&h=344&crop=1")
     
     ########################################
@@ -73,11 +63,16 @@ def D1():
     data = soup.findAll("p", attrs={"class": "list"})
 
     FACTS = [fact.find(string=re.compile("(S|s)un")) for fact in data]
+    FACT = [] 
+    for val in FACTS: 
+    if val != None : 
+        FACT.append(val)
     # list size: 40
     # seed random number generator
     seed(1)
     # generate some integers
-    num = randint(0, 39)
+    x = len(FACT)
+    num = randint(0, x-1)
 
     text = (FACTS[num]) 
     
@@ -97,12 +92,16 @@ def D2():
     data = soup.findAll("h5")
 
     FACTS = [fact.find(string=re.compile("(M|m)oon")) for fact in data]
+    FACT = [] 
+    for val in FACTS: 
+    if val != None : 
+        FACT.append(val)
     # list size: 40
-
     # seed random number generator
     seed(1)
     # generate some integers
-    num = randint(0, 39)
+    x = len(FACT)
+    num = randint(0, x-1)
     text = (FACTS[num])
 
     
@@ -124,13 +123,16 @@ def D3():
     data2 = data[0].findAll("li")
 
     FACTS = [fact.find(string=re.compile(".")) for fact in data2]
+    FACT = [] 
+    for val in FACTS: 
+    if val != None : 
+        FACT.append(val)
     # list size: 46
-
     # seed random number generator
     seed(1)
     # generate some integers
-    num = randint(0, 45)
-    text = (FACTS[num])
+    x = len(FACT)
+    num = randint(0, x-1)
     
     return render_template("d3.html", text = text)
 
@@ -148,13 +150,15 @@ def D4():
     data = soup.findAll("h4")
 
     FACTS = [fact.find(string=re.compile(".")) for fact in data]
-    # list size: 33 (skip first index[0])
-
+    FACT = [] 
+    for val in FACTS: 
+    if val != None : 
+        FACT.append(val)
+    # list size: 33
     # seed random number generator
     seed(1)
     # generate some integers
-    num = randint(1, 32)
-
-    text = (FACTS[num])
+    x = len(FACT)
+    num = randint(0, x-1)
 
     return render_template("d3.html", text = text)
