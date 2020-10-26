@@ -162,4 +162,4 @@ def D4():
     x = len(FACT)
     num = randint(0, x-1)
     text = (FACT[num])
-    return render_template("d3.html", text = text)
+    return render_template("d4.html", text = text)
