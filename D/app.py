@@ -8,6 +8,9 @@ from bs4 import BeautifulSoup
 import requests
 import re
 
+# generate random integer point values
+from random import seed
+from random import randint
 
 #set route for user navigation
 @app.route('/')
@@ -71,8 +74,12 @@ def D1():
 
     FACTS = [fact.find(string=re.compile("(S|s)un")) for fact in data]
     # list size: 40
+    # seed random number generator
+    seed(1)
+    # generate some integers
+    num = randint(0, 39)
 
-    text = (FACTS[1]) 
+    text = (FACTS[num]) 
     
     return render_template("d1.html", text = text)
 
@@ -91,8 +98,12 @@ def D2():
 
     FACTS = [fact.find(string=re.compile("(M|m)oon")) for fact in data]
     # list size: 40
-   
-    text = (FACTS[39])
+
+    # seed random number generator
+    seed(1)
+    # generate some integers
+    num = randint(0, 39)
+    text = (FACTS[num])
 
     
     return render_template("d2.html", text = text)
@@ -115,7 +126,11 @@ def D3():
     FACTS = [fact.find(string=re.compile(".")) for fact in data2]
     # list size: 46
 
-    text = (FACTS[4])
+    # seed random number generator
+    seed(1)
+    # generate some integers
+    num = randint(0, 45)
+    text = (FACTS[num])
     
     return render_template("d3.html", text = text)
 
@@ -135,6 +150,11 @@ def D4():
     FACTS = [fact.find(string=re.compile(".")) for fact in data]
     # list size: 33 (skip first index[0])
 
-    text = (FACTS[1])
+    # seed random number generator
+    seed(1)
+    # generate some integers
+    num = randint(1, 32)
+
+    text = (FACTS[num])
 
     return render_template("d3.html", text = text)
