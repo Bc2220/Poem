@@ -64,14 +64,24 @@ def D1():
     for val in FACTS: 
         if val != None : 
             FACT.append(val)
-    # list size: 40
-    # seed random number generator
-    #seed(1)
-    # generate some integers
-    #x = len(FACT)
-    #num = randint(0, x-1)
+    page2 = requests.get("https://www.wiseoldsayings.com/the-sun-quotes/",headers=headers)
+    soup2 = BeautifulSoup(page2.content,'html.parser')
 
-    text = (random.choice(FACT)) 
+    data2 = soup2.findAll("b")
+
+    FACTS2 = [fact2.find(string=re.compile("(S|s)")) for fact2 in data2]
+    FACT2 = [] 
+    for val2 in FACTS2: 
+        if val2 != None :
+            val2.replace('\xa0','') 
+            FACT2.append(val)
+
+    s1 = random.choice(FACT)
+    q1 = "\n\n\" "
+    q2 = "\""
+    s2 = random.choice(FACT2).replace('\xa0','')
+    l = q1 + s2 + q2
+    text = s1 + l
     
     return render_template("d1.html", text = text)
 
