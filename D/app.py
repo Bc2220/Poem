@@ -77,13 +77,14 @@ def D1():
             FACT2.append(val)
 
     s1 = random.choice(FACT)
-    q1 = "\n\n\n\" "
+    q1 = "\""
     q2 = "\""
     s2 = random.choice(FACT2).replace('\xa0','')
     l = q1 + s2 + q2
     text = s1 + l
-    
-    return render_template("d1.html", text = text)
+    text1 = s1
+    text2 = l
+    return render_template("d1.html", text1 = text1, text2 = text2)
 
 
 #set route for user navigation
