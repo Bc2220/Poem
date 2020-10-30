@@ -74,16 +74,15 @@ def D1():
     for val2 in FACTS2: 
         if val2 != None :
             val2.replace('\xa0','') 
-            FACT2.append(val)
+            FACT2.append(val2)
 
     s1 = random.choice(FACT)
     q1 = "\""
     q2 = "\""
     s2 = random.choice(FACT2).replace('\xa0','')
-    l = q1 + s2 + q2
-    text = s1 + l
+    s2 = q1 + s2 + q2
     text1 = s1
-    text2 = l
+    text2 = s2
     return render_template("d1.html", text1 = text1, text2 = text2)
 
 
