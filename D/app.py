@@ -10,44 +10,6 @@ import re
 import random
 
 #set route for user navigation
-@app.route('/')
-
-#define app function
-def index():
-    
-
-    picture = ("https://truthignitedministry.files.wordpress.com/2019/01/SunGodWordpress.png?w=920&h=344&crop=1")
-    
-    ########################################
-    #Set up list
-    D1 = 'sun god'
-    #D2 = 'D2'
-    #D3 = 'D3'
-
-    #get number
-    number = 30
-
-    #move through list
-    search = D1
-    article = []
-    results = 100 # valid options 10, 20, 30, 40, 50, and 100
-    page = requests.get(f"https://www.google.com/search?q={search}&num={results}")
-    soup = BeautifulSoup(page.content, "html.parser")
-    links = soup.findAll("a")
-    for link in links :
-        link_href = link.get('href')
-        if "url?q=" in link_href and not "webcache" in link_href:
-            article.append((link.get('href').split("?q=")[1].split("&sa=U")[0]))
-
-    page = requests.get(f'{article[number]}')
-    soup = BeautifulSoup(page.text, 'html.parser')
-    text = (soup.text) 
-
-    
-    return render_template("index.html", text = text,)
-
-
-#set route for user navigation
 @app.route('/d1')
 
 #define app function
