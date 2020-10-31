@@ -103,16 +103,29 @@ def D2():
     for val in FACTS: 
         if val != None : 
             FACT.append(val)
-    # list size: 40
-    # seed random number generator
-    #seed(1)
-    # generate some integers
-    #x = len(FACT)
-    #num = randint(0, x-1)
-    text = (random.choice(FACT))
 
+    s1 = (random.choice(FACT))
     
-    return render_template("d2.html", text = text)
+    page2 = requests.get("https://www.wiseoldsayings.com/the-moon-quotes/",headers=headers)
+    soup2 = BeautifulSoup(page2.content,'html.parser')
+
+    data2 = soup2.findAll("b")
+
+    FACTS2 = [fact2.find(string=re.compile("(S|s)")) for fact2 in data2]
+    FACT2 = [] 
+    for val2 in FACTS2: 
+        if val2 != None :
+            val2.replace('\xa0','') 
+            FACT2.append(val2)
+
+    s2 = random.choice(FACT2).replace('\xa0','')
+    q1 = "\""
+    q2 = "\""
+    s2 = q1 + s2 + q2
+
+    text1 = s1
+    text2 = s2
+    return render_template("d1.html", text1 = text1, text2 = text2)
 
 
 
@@ -134,15 +147,29 @@ def D3():
     for val in FACTS: 
         if val != None : 
             FACT.append(val)
-    # list size: 46
-    # seed random number generator
-    #seed(1)
-    # generate some integers
-    #x = len(FACT)
-    #num = randint(0, x-1)
-    #num2 = randint(0, x-1)
-    text = (random.choice(FACT))
-    return render_template("d3.html", text = text)
+
+    s1 = (random.choice(FACT))
+    
+    page2 = requests.get("https://www.wiseoldsayings.com/stars-quotes/",headers=headers)
+    soup2 = BeautifulSoup(page2.content,'html.parser')
+
+    data2 = soup2.findAll("b")
+
+    FACTS2 = [fact2.find(string=re.compile("(S|s)")) for fact2 in data2]
+    FACT2 = [] 
+    for val2 in FACTS2: 
+        if val2 != None :
+            val2.replace('\xa0','') 
+            FACT2.append(val2)
+
+    s2 = random.choice(FACT2).replace('\xa0','')
+    q1 = "\""
+    q2 = "\""
+    s2 = q1 + s2 + q2
+    
+    text1 = s1
+    text2 = s2
+    return render_template("d1.html", text1 = text1, text2 = text2)
 
 
 #set route for user navigation
@@ -162,11 +189,26 @@ def D4():
     for val in FACTS: 
         if val != None : 
             FACT.append(val)
-    # list size: 33
-    # seed random number generator
-    #seed(1)
-    # generate some integers
-    #x = len(FACT)
-    #num = randint(0, x-1)
-    text = (random.choice(FACT))
-    return render_template("d4.html", text = text)
+
+    s1 = (random.choice(FACT))
+    
+    page2 = requests.get("https://www.wiseoldsayings.com/computer-quotes/",headers=headers)
+    soup2 = BeautifulSoup(page2.content,'html.parser')
+
+    data2 = soup2.findAll("b")
+
+    FACTS2 = [fact2.find(string=re.compile("(S|s)")) for fact2 in data2]
+    FACT2 = [] 
+    for val2 in FACTS2: 
+        if val2 != None :
+            val2.replace('\xa0','') 
+            FACT2.append(val2)
+
+    s2 = random.choice(FACT2).replace('\xa0','')
+    q1 = "\""
+    q2 = "\""
+    s2 = q1 + s2 + q2
+    
+    text1 = s1
+    text2 = s2
+    return render_template("d1.html", text1 = text1, text2 = text2)
