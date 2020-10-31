@@ -125,7 +125,7 @@ def D2():
 
     text1 = s1
     text2 = s2
-    return render_template("d1.html", text1 = text1, text2 = text2)
+    return render_template("d2.html", text1 = text1, text2 = text2)
 
 
 
@@ -169,7 +169,7 @@ def D3():
     
     text1 = s1
     text2 = s2
-    return render_template("d1.html", text1 = text1, text2 = text2)
+    return render_template("d3.html", text1 = text1, text2 = text2)
 
 
 #set route for user navigation
@@ -211,4 +211,4 @@ def D4():
     
     text1 = s1
     text2 = s2
-    return render_template("d1.html", text1 = text1, text2 = text2)
+    return render_template("d4.html", text1 = text1, text2 = text2)
