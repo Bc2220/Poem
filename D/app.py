@@ -32,8 +32,9 @@ def D1():
     FACTS = [fact.find(string=re.compile("(S|s)un")) for fact in data]
     FACT = [] 
     for val in FACTS: 
-        if val != None : 
+        if val != None and len(val) > 13 : 
             FACT.append(val)
+            
     page2 = requests.get("https://www.wiseoldsayings.com/the-sun-quotes/",headers=headers)
     soup2 = BeautifulSoup(page2.content,'html.parser')
 
