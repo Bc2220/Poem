@@ -44,7 +44,7 @@ def index():
     text = (soup.text) 
 
     
-    return render_template("index.html", text = text, picture = picture)
+    return render_template("index.html", text = text,)
 
 
 #set route for user navigation
