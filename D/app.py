@@ -10,6 +10,14 @@ import re
 import random
 
 #set route for user navigation
+@app.route('/')
+
+#define app function
+def index():
+    text = "Sky Derieve"
+    
+    return render_template("index.html", text = text,)
+#set route for user navigation
 @app.route('/d1')
 
 #define app function
